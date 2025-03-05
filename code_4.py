@@ -22,8 +22,8 @@ def get_the_cheapest_big_mac_price_by_year(year):
 def get_the_most_expensive_big_mac_price_by_year(year):
     query = f"date >= '{year}-01-01' and date < '{year + 1}-01-01'" #filter requested year
     q_df = df.query(query)
-    max_row = q_df.loc[q_df["dollar_price"].idxmax()]  #
-    return f"{max_row["name"]}({max_row["iso_a3"]}): ${round(max_row["dollar_price"],2)}"
+    max_row = q_df.loc[q_df["dollar_price"].idxmax()]  #q_df.loc gives full row priciest big mac
+    return f"{max_row["name"]}({max_row["iso_a3"]}): ${round(max_row["dollar_price"],2)}" #gets country name, country code, highest price
 
 if __name__ == "__main__":
 
